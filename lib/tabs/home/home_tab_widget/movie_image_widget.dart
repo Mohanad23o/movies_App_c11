@@ -30,7 +30,7 @@ class MovieImageWidget extends StatelessWidget {
                 'assets/lottie/error.json',
                 repeat: true,
                 reverse: true,
-                frameRate: FrameRate(60),
+                frameRate: const FrameRate(60),
               ),
             ),
             placeholder: (context, url) => Center(
@@ -38,7 +38,7 @@ class MovieImageWidget extends StatelessWidget {
                 'assets/lottie/loading.json',
                 repeat: true,
                 reverse: true,
-                frameRate: FrameRate(60),
+                frameRate: const FrameRate(60),
               ),
             ),
           ),

@@ -8,7 +8,8 @@ class MovieImageWidget extends StatelessWidget {
   final double width;
   final double height;
 
-  MovieImageWidget({
+  const MovieImageWidget({
+    super.key,
     required this.movie,
     required this.width,
     required this.height,
@@ -18,13 +19,13 @@ class MovieImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           width: double.infinity,
           child: CachedNetworkImage(
             imageUrl: 'https://image.tmdb.org/t/p/w500/${movie.backdropPath}',
             width: double.infinity,
             height: height / 3,
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
             placeholder: (context, url) => Center(
               child: Lottie.asset('assets/lottie/loading.json'),
             ),
@@ -40,7 +41,7 @@ class MovieImageWidget extends StatelessWidget {
                 imageUrl: 'https://image.tmdb.org/t/p/w500/${movie.posterPath}',
                 width: width * 0.3,
                 height: height * 0.2,
-                errorWidget: (context, url, error) => Icon(Icons.error),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 placeholder: (context, url) => Center(
                   child: Lottie.asset('assets/lottie/loading.json'),
                 ),
@@ -49,7 +50,8 @@ class MovieImageWidget extends StatelessWidget {
         Positioned(
           top: height * 0.1,
           left: width * 0.5 - 25,
-          child: Icon(Icons.play_circle_fill, size: 80, color: Colors.white),
+          child:
+              const Icon(Icons.play_circle_fill, size: 80, color: Colors.white),
         ),
         Positioned(
           bottom: 25,
@@ -72,7 +74,7 @@ class MovieImageWidget extends StatelessWidget {
           bottom: 120,
           left: 13,
           child: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.bookmark,
               color: Color.fromRGBO(128, 128, 128, 0.8),
               size: 40,

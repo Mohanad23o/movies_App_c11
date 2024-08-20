@@ -6,7 +6,7 @@ import 'package:movies_app_c11/tabs/home/home_tab_widget/movie_image_widget.dart
 class HomeTabTopSide extends StatelessWidget {
   List<Results> popularMoviesList;
 
-  HomeTabTopSide({required this.popularMoviesList});
+  HomeTabTopSide({super.key, required this.popularMoviesList});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class HomeTabTopSide extends StatelessWidget {
         enlargeCenterPage: true,
         enableInfiniteScroll: true,
         autoPlay: true,
-        autoPlayInterval: Duration(seconds: 3),
+        autoPlayInterval: const Duration(seconds: 3),
       ),
       itemCount: popularMoviesList.length,
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>

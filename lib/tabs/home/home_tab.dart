@@ -27,12 +27,12 @@ class HomeTab extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Error: ${state.errorMessage}'),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     viewModel.getPopularMovies();
                   },
-                  child: Text('Try Again'),
+                  child: const Text('Try Again'),
                 ),
               ],
             ),

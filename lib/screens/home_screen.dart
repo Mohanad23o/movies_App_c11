@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: true,
-          backgroundColor: AppColors.blackColor,
           onTap: (index) {
             selectedIndex = index;
             setState(() {});
@@ -49,9 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> tabs = [
-    const HomeTab(),
-    const SearchTab(),
-    const CategoryBrowseTab(),
-    const WatchListTab()
+    HomeTab(),
+    SearchTab(),
+    CategoryBrowseTab(),
+    WatchListTab()
   ];
 }

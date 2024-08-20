@@ -1,18 +1,55 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
+import 'package:movies_app_c11/tabs/home/cubit/home_tab_view_model.dart';
+import 'package:movies_app_c11/tabs/home/cubit/sources_state.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/movie_banner_slider.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({super.key});
+  HomeTab({super.key});
 
-
-
+  HomeTabViewModel viewModel = HomeTabViewModel();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
+    viewModel.getPopularMovies();
+    return BlocBuilder<HomeTabViewModel, SourcesState>(
+      bloc: viewModel,
+      builder: (context, state) {
+        if (state is SourceLoadingState) {
+          return Center(
+              child: Lottie.asset('assets/lottie/loading.json',
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  width: MediaQuery.of(context).size.width * 0.5));
+        } else if (state is SourceErrorState) {
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Error: ${state.errorMessage}'),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    viewModel.getPopularMovies();
+                  },
+                  child: Text('Try Again'),
+                ),
+              ],
+            ),
+          );
+        } else if (state is SourceSuccessState) {
+          return Scaffold(
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  HomeTabTopSide(popularMoviesList: state.popularMoviesList)
+                ],
+              ),
+            ),
+          );
+        }
+        return Container();
+      },
     );
-
   }
 }

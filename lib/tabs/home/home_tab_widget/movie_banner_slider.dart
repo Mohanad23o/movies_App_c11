@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:movies_app_c11/model/MoviesResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/tabs/home/home_tab_widget/movie_image_widget.dart';
 
 class HomeTabTopSide extends StatelessWidget {
@@ -18,7 +18,7 @@ class HomeTabTopSide extends StatelessWidget {
         enlargeCenterPage: true,
         enableInfiniteScroll: true,
         autoPlay: true,
-        autoPlayInterval: const Duration(seconds: 3),
+        autoPlayInterval: const Duration(seconds: 4),
       ),
       itemCount: popularMoviesList.length,
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>

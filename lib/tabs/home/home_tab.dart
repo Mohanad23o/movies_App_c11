@@ -12,6 +12,8 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     viewModel.getPopularMovies();
     return BlocBuilder<HomeTabViewModel, SourcesState>(
       bloc: viewModel,
@@ -19,6 +21,9 @@ class HomeTab extends StatelessWidget {
         if (state is SourceLoadingState) {
           return Center(
               child: Lottie.asset('assets/lottie/loading.json',
+                  repeat: true,
+                  reverse: true,
+                  frameRate: FrameRate(60),
                   height: MediaQuery.of(context).size.height * 0.5,
                   width: MediaQuery.of(context).size.width * 0.5));
         } else if (state is SourceErrorState) {
@@ -42,7 +47,7 @@ class HomeTab extends StatelessWidget {
             body: SingleChildScrollView(
               child: Column(
                 children: [
-                  HomeTabTopSide(popularMoviesList: state.popularMoviesList)
+                  HomeTabTopSide(popularMoviesList: state.popularMoviesList),
                 ],
               ),
             ),

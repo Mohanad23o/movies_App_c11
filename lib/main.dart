@@ -9,8 +9,7 @@ import 'package:movies_app_c11/theme/my_theme_data.dart';
 
 void main() {
   Bloc.observer = MyBlocObserver();
-  runApp(DevicePreview(
-      enabled: !kReleaseMode, builder: (context) => const MyApp()));
+  runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {

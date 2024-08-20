@@ -1,4 +1,4 @@
-import 'package:movies_app_c11/model/MoviesResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 
 abstract class SourcesState {}
 class SourceLoadingState extends SourcesState{}

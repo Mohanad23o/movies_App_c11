@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movies_app_c11/model/MoviesResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 
 class MovieImageWidget extends StatelessWidget {
   final Results movie;
@@ -25,9 +25,21 @@ class MovieImageWidget extends StatelessWidget {
             imageUrl: 'https://image.tmdb.org/t/p/w500/${movie.backdropPath}',
             width: double.infinity,
             height: height / 3,
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+            errorWidget: (context, url, error) => Center(
+              child: Lottie.asset(
+                'assets/lottie/error.json',
+                repeat: true,
+                reverse: true,
+                frameRate: FrameRate(60),
+              ),
+            ),
             placeholder: (context, url) => Center(
-              child: Lottie.asset('assets/lottie/loading.json'),
+              child: Lottie.asset(
+                'assets/lottie/loading.json',
+                repeat: true,
+                reverse: true,
+                frameRate: FrameRate(60),
+              ),
             ),
           ),
         ),

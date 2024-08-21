@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
-import 'package:movies_app_c11/tabs/home/home_tab_widget/movie_image_widget.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/top_side_section/movie_image_widget.dart';
 
 class HomeTabTopSide extends StatelessWidget {
   List<Results> popularMoviesList;

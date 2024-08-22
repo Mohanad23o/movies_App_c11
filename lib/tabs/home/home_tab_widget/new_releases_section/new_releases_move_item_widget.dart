@@ -9,8 +9,7 @@ class NewReleasesMoveItemWidget extends StatelessWidget {
   final double width;
   final Movies movie;
 
-  const NewReleasesMoveItemWidget({
-    super.key,
+  NewReleasesMoveItemWidget({
     required this.height,
     required this.width,
     required this.movie,
@@ -40,7 +39,7 @@ class NewReleasesMoveItemWidget extends StatelessWidget {
             onPressed: () {
               print('Add To Watch List');
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.bookmark,
               size: 40,
               color: AppColors.watchListIcon,

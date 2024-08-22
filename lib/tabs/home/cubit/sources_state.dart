@@ -1,13 +1,21 @@
-import 'package:movies_app_c11/model/MoviesResponse.dart';
-
 abstract class SourcesState {}
-class SourceLoadingState extends SourcesState{}
-class SourceErrorState extends SourcesState{
-  String errorMessage ;
+
+class PopularMoviesLoadingState extends SourcesState {}
+
+class SourceLoadingState extends SourcesState {}
+
+class PopularMoviesSuccessState extends SourcesState {}
+
+class NewReleasesMoviesLoadingState extends SourcesState {}
+
+class NewReleasesMoviesSuccessState extends SourcesState {}
+
+class TopRatedMoviesLoadingState extends SourcesState {}
+
+class TopRatedMoviesSuccessState extends SourcesState {}
+
+class SourceErrorState extends SourcesState {
+  String errorMessage;
+
   SourceErrorState({required this.errorMessage});
 }
-class SourceSuccessState extends SourcesState{
-  List<Results>popularMoviesList ;
-  SourceSuccessState({required this.popularMoviesList});
-}
-

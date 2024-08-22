@@ -36,7 +36,8 @@ class HomeTab extends StatelessWidget {
               child: Column(
                 children: [
                   if (viewModel.popularMovies != null)
-                    HomeTabTopSide(popularMoviesList: viewModel.popularMovies!),
+                    MovieBannerSlider(
+                        popularMoviesList: viewModel.popularMovies!),
                   SizedBox(
                     height: height * 0.0269058295964126,
                   ),

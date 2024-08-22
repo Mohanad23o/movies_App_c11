@@ -9,7 +9,8 @@ class RecommendedMoveItemWidget extends StatelessWidget {
   final double width;
   final TopMovies topMovies;
 
-  RecommendedMoveItemWidget({
+  const RecommendedMoveItemWidget({
+    super.key,
     required this.height,
     required this.width,
     required this.topMovies,
@@ -48,7 +49,7 @@ class RecommendedMoveItemWidget extends StatelessWidget {
                   onPressed: () {
                     print('Added To Watch List');
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.bookmark,
                     size: 40,
                     color: AppColors.watchListIcon,
@@ -72,7 +73,7 @@ class RecommendedMoveItemWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
                   topMovies.title ?? '',
                   style: const TextStyle(
@@ -86,7 +87,7 @@ class RecommendedMoveItemWidget extends StatelessWidget {
                   (topMovies.releaseDate != null)
                       ? DateTime.parse(topMovies.releaseDate!).year.toString()
                       : '',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.bold,
                     fontSize: 10,

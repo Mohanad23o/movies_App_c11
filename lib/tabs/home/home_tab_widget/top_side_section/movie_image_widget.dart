@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
+import 'package:movies_app_c11/theme/app_colors.dart';
 
 class MovieImageWidget extends StatelessWidget {
   final Results movie;
@@ -88,7 +89,7 @@ class MovieImageWidget extends StatelessWidget {
           child: IconButton(
             icon: const Icon(
               Icons.bookmark,
-              color: Color.fromRGBO(128, 128, 128, 0.8),
+              color: AppColors.watchListIcon,
               size: 40,
             ),
             onPressed: () {

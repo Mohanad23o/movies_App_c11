@@ -1,13 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movies_app_c11/model/TopRatedResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
 class RecommendedMoveItemWidget extends StatelessWidget {
   final double height;
   final double width;
-  final TopMovies topMovies;
+  final Results topMovies;
 
   const RecommendedMoveItemWidget({
     super.key,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app_c11/model/SearchMoviesResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/utils/app_utils.dart';
 
 class SearchWidget extends StatelessWidget {
-  List<SearchResults>? searchResults;
+  List<Results>? searchResults;
 
   SearchWidget({super.key, required this.searchResults});
 

@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:movies_app_c11/api/api_constants.dart';
-import 'package:movies_app_c11/model/SearchMoviesResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/tabs/search/cubit/search_tab_state.dart';
 
 class SearchTabViewModel extends Cubit<SourceSearchState> {
   SearchTabViewModel() : super(SourceUnSearchSuccessState());
 
-  List<SearchResults>? searchResults;
+  List<Results>? searchResults;
   TextEditingController searchController = TextEditingController();
 
   String get searchQuery => searchController.text;
@@ -33,8 +33,8 @@ class SearchTabViewModel extends Cubit<SourceSearchState> {
     try {
       var response = await http.get(url);
       var jsonResponse = jsonDecode(response.body);
-      SearchMoviesResponse searchMoviesResponse =
-          SearchMoviesResponse.fromJson(jsonResponse);
+      MoviesResponse searchMoviesResponse =
+          MoviesResponse.fromJson(jsonResponse);
 
       if (searchMoviesResponse.success != false) {
         searchResults = searchMoviesResponse.results!;

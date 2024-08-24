@@ -6,14 +6,25 @@ import 'package:movies_app_c11/tabs/home/home_tab_widget/new_releases_section/ne
 import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_move_item.dart';
 import 'package:movies_app_c11/tabs/home/home_tab_widget/top_side_section/movie_banner_slider.dart';
 
-class HomeTab extends StatelessWidget {
-  HomeTabViewModel viewModel = HomeTabViewModel();
+class HomeTab extends StatefulWidget {
+  @override
+  _HomeTabState createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  late HomeTabViewModel viewModel;
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    viewModel = HomeTabViewModel();
     viewModel.getPopularMovies();
     viewModel.getNewReleasesMovies();
     viewModel.getTopRatedMovies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return BlocBuilder<HomeTabViewModel, SourcesState>(
       bloc: viewModel,
@@ -35,19 +46,22 @@ class HomeTab extends StatelessWidget {
             body: SingleChildScrollView(
               child: Column(
                 children: [
-                  if (viewModel.popularMovies != null)
+                  if (viewModel.popularMovies != null &&
+                      viewModel.popularMovies!.isNotEmpty)
                     MovieBannerSlider(
                         popularMoviesList: viewModel.popularMovies!),
                   SizedBox(
-                    height: height * 0.0269058295964126,
+                    height: height * 0.0269,
                   ),
-                  if (viewModel.getNewReleasesMovies != null)
+                  if (viewModel.newReleasesMovies != null &&
+                      viewModel.newReleasesMovies!.isNotEmpty)
                     NewReleasesMoveItem(
                         newReleasesMovies: viewModel.newReleasesMovies!),
                   SizedBox(
-                    height: height * 0.0269058295964126,
+                    height: height * 0.0269,
                   ),
-                  if (viewModel.topRatedMovies != null)
+                  if (viewModel.topRatedMovies != null &&
+                      viewModel.topRatedMovies!.isNotEmpty)
                     RecommendedMoveItem(topMovies: viewModel.topRatedMovies!),
                 ],
               ),

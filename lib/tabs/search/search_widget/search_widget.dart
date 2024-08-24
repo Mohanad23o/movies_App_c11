@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app_c11/model/SearchMoviesResponse.dart';
+import 'package:movies_app_c11/utils/app_utils.dart';
 
 class SearchWidget extends StatelessWidget {
   List<SearchResults>? searchResults;
 
-  SearchWidget({required this.searchResults});
+  SearchWidget({super.key, required this.searchResults});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class SearchWidget extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
-                    'https://image.tmdb.org/t/p/w500/${movie.posterPath}',
+                    '${AppUtils.missingImageUrl}${movie.posterPath}',
                     width: MediaQuery.of(context).size.width * 0.2,
                     height: MediaQuery.of(context).size.width * 0.3,
                     fit: BoxFit.cover,
@@ -37,7 +38,7 @@ class SearchWidget extends StatelessWidget {
                     children: [
                       Text(
                         movie.title!,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,

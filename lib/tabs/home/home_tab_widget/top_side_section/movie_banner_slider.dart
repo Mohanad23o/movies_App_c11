@@ -5,7 +5,7 @@ import 'package:movies_app_c11/tabs/home/home_tab_widget/top_side_section/movie_
 
 class MovieBannerSlider extends StatelessWidget {
   List<Results> popularMoviesList;
-
+  int selectedIndex = 0;
   MovieBannerSlider({super.key, required this.popularMoviesList});
 
   @override
@@ -25,13 +25,12 @@ class MovieBannerSlider extends StatelessWidget {
           autoPlayInterval: const Duration(seconds: 4),
         ),
         itemCount: popularMoviesList.length,
-        itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-            MovieImageWidget(
-          movie: popularMoviesList[itemIndex],
+            itemBuilder:
+                (BuildContext context, int itemIndex, int pageViewIndex) {
+              return MovieImageWidget(
+                  movie: popularMoviesList[itemIndex],
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-        ),
-      ),
-    );
+                  height: MediaQuery.of(context).size.height);
+            }));
   }
 }

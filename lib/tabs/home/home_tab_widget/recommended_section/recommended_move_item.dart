@@ -7,6 +7,7 @@ class RecommendedMoveItem extends StatelessWidget {
   final List<TopMovies> topMovies;
 
   RecommendedMoveItem({
+    super.key,
     required this.topMovies,
   });
 
@@ -17,7 +18,7 @@ class RecommendedMoveItem extends StatelessWidget {
         print('go to details');
       },
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         color: AppColors.moviesListContainerColor,
         width: double.infinity,
         height: MediaQuery.of(context).size.height * 0.35,
@@ -36,20 +37,34 @@ class RecommendedMoveItem extends StatelessWidget {
             ),
             Expanded(
               child: ListView.separated(
-                  separatorBuilder: (context, index) => SizedBox(width: 20),
+                  itemCount: topMovies.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 20),
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => topMovies.isNotEmpty
-                      ? RecommendedMoveItemWidget(
-                          height: MediaQuery.of(context).size.height,
-                          width: MediaQuery.of(context).size.width,
-                          topMovies: topMovies[index],
-                        )
-                      : Text('data'),
-                  itemCount: topMovies.length),
-            ),
+                  itemBuilder: (context, index) {
+                    if (topMovies.isNotEmpty) {
+                      return RecommendedMoveItemWidget(
+                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        topMovies: topMovies[index],
+                      );
+                    } else {
+                      return Text('data');
+                    }
+                  }),
+            )
           ],
         ),
       ),
     );
   }
 }
+/*
+topMovies.isNotEmpty
+                      ? RecommendedMoveItemWidget(
+                          height: MediaQuery.of(context).size.height,
+                          width: MediaQuery.of(context).size.width,
+                          topMovies: topMovies[index],
+                        )
+                      : const Text('data'),
+ */

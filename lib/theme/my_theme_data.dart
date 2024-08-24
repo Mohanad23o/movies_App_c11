@@ -5,6 +5,8 @@ import 'package:movies_app_c11/theme/app_colors.dart';
 class MyThemeData {
   static final ThemeData lightMode = ThemeData(
     scaffoldBackgroundColor: AppColors.blackColor,
+    primaryColor: AppColors.blackColor,
+    canvasColor: AppColors.blackColor,
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.blackColor,
         showUnselectedLabels: true,

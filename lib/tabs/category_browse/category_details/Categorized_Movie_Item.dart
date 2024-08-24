@@ -6,7 +6,7 @@ import 'package:movies_app_c11/model/Categories_Response.dart';
 import 'package:movies_app_c11/tabs/category_browse/category_details/Category_view_model.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
-import '../../../model/discover_Category_Response.dart';
+import '../../../model/movies_response.dart';
 
 class CategorizedMovieItem extends StatelessWidget {
 
@@ -26,11 +26,11 @@ final CategoryViewModel viewModel = CategoryViewModel();
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
-    List<Results> getMoviesForCategory(Genres genres, List<Results> unfilteredList) {
-      return unfilteredList.where((movie) {
-        return movie.id != null && movie.id == genres.id;
-      }).toList();
-    }
+   // List<Results> getMoviesForCategory(Genres genres, List<Results> unfilteredList) {
+     // return unfilteredList.where((movie) {
+       // return movie.id != null && movie.id == genres.id;
+      //}).toList();
+    //}
 
 /*
     getMoviesForCategory(selectedGenrie, moviesList!);

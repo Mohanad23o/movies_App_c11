@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app_c11/model/Categories_Response.dart';
-import 'package:movies_app_c11/model/discover_Category_Response.dart';
 import 'package:movies_app_c11/tabs/category_browse/category_details/Categorized_Movie_Item.dart';
 import 'package:movies_app_c11/tabs/category_browse/category_details/Category_view_model.dart';
 import 'package:movies_app_c11/tabs/category_browse/category_widget/category_widget.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
+
+import '../../../model/movies_response.dart';
 
 class CategoryDetails extends StatelessWidget {
   static const String routeName = "Category Details";
@@ -42,12 +43,8 @@ class CategoryDetails extends StatelessWidget {
                     child: Text("Error loading movies: ${snapshot.error}"),
                   );
                 }else {
-
-
                   List<Results>? filteredMovies = viewModel.CategorizedMovies!.where((movie) =>
                       movie.genreIds!.contains(genre.id)).toList();
-                  
-
 
                   if(filteredMovies.isEmpty){
                     return Column(

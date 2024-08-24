@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app_c11/model/TopRatedResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_move_item_widget.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
 class RecommendedMoveItem extends StatelessWidget {
-  final List<TopMovies> topMovies;
+  final List<Results> topMovies;
 
   RecommendedMoveItem({
     super.key,

@@ -1,13 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movies_app_c11/model/UpcomingResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
 class NewReleasesMoveItemWidget extends StatelessWidget {
   final double height;
   final double width;
-  final Movies movie;
+  final Results movie;
 
   const NewReleasesMoveItemWidget({
     super.key,

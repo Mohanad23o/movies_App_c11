@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app_c11/model/UpcomingResponse.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
 import 'new_releases_move_item_widget.dart';
 
 class NewReleasesMoveItem extends StatefulWidget {
-  final List<Movies> newReleasesMovies;
+  final List<Results> newReleasesMovies;
 
   NewReleasesMoveItem({
     super.key,

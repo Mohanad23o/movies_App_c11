@@ -19,10 +19,28 @@ class MyThemeData {
           color: AppColors.whiteColor,
           fontSize: 18,
           fontWeight: FontWeight.w400),
+
       labelSmall: GoogleFonts.inter(
           color: AppColors.lightGreyColor,
           fontSize: 15,
           fontWeight: FontWeight.w400),
+
+      displayLarge: GoogleFonts.inter(
+          color: AppColors.whiteColor,
+          fontSize: 18,
+          fontWeight: FontWeight.w600),
+
+      bodyLarge: GoogleFonts.inter(
+        fontWeight: FontWeight.w400,
+        color: AppColors.whiteColor,
+        fontSize: 22,
+      ),
+      titleLarge:  GoogleFonts.inter(
+        fontWeight: FontWeight.w500,
+        color: AppColors.whiteColor,
+        fontSize: 24,
+      ),
+
     ),
   );
 }

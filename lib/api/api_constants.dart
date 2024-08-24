@@ -6,6 +6,8 @@ class ApiConstants {
   static const String searchApi = '/3/search/movie';
   static const String movieDetailsApi = '/3/movie/';
   static const String apiKey = '5e6aa2b7316d4e5556078b7eb2d4e210';
+  static const String categoriesApi = '/3/genre/movie/list';
+  static const String discoverApi = '/3/discover/movie';
 }
 /*
 

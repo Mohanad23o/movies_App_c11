@@ -11,4 +11,5 @@ class AppColors {
   static const Color watchListIcon = Color(0xCC808080);
   static const Color moviesListContainerColor = Color(0xFF282A28);
   static const Color moviesItemContainerColor = Color(0xFF343534);
+  static const Color dividerColor = Color(0xFF880808);
 }

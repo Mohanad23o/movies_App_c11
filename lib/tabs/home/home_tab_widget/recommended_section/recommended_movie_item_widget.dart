@@ -29,8 +29,8 @@ class RecommendedMoveItemWidget extends StatelessWidget {
           MoviePosterWidget(
             height: height * 0.5,
             width: double.infinity,
-            right: 80,
-            bottom: 125,
+            right: width*0.19,
+            bottom: height*0.15,
             movie: topMovies,
           ),
           Padding(

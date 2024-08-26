@@ -52,8 +52,8 @@ class _NewReleasesMovieItemState extends State<NewReleasesMovieItem> {
                           arguments: widget.newReleasesMovies[index]);
                     },
                     child: MoviePosterWidget(
-                      bottom: 102,
-                      right: 60,
+                      bottom: MediaQuery.of(context).size.height*0.12,
+                      right: MediaQuery.of(context).size.width*0.16,
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
                       movie: widget.newReleasesMovies[index],

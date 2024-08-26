@@ -3,21 +3,21 @@ import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/screens/details/movies_details_screen.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
-import 'new_releases_move_item_widget.dart';
+import '../movie_poster_widget.dart';
 
-class NewReleasesMoveItem extends StatefulWidget {
+class NewReleasesMovieItem extends StatefulWidget {
   final List<Results> newReleasesMovies;
 
-  const NewReleasesMoveItem({
+  const NewReleasesMovieItem({
     super.key,
     required this.newReleasesMovies,
   });
 
   @override
-  State<NewReleasesMoveItem> createState() => _NewReleasesMoveItemState();
+  State<NewReleasesMovieItem> createState() => _NewReleasesMovieItemState();
 }
 
-class _NewReleasesMoveItemState extends State<NewReleasesMoveItem> {
+class _NewReleasesMovieItemState extends State<NewReleasesMovieItem> {
   int? selectedIndex;
 
   @override
@@ -51,7 +51,9 @@ class _NewReleasesMoveItemState extends State<NewReleasesMoveItem> {
                           MoviesDetailsScreen.routeName,
                           arguments: widget.newReleasesMovies[index]);
                     },
-                    child: NewReleasesMoveItemWidget(
+                    child: MoviePosterWidget(
+                      bottom: 102,
+                      right: 60,
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
                       movie: widget.newReleasesMovies[index],

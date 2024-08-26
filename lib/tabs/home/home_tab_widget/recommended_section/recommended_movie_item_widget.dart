@@ -1,7 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/movie_poster_widget.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
 class RecommendedMoveItemWidget extends StatelessWidget {
@@ -27,35 +26,13 @@ class RecommendedMoveItemWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Stack(children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                width: double.infinity,
-                imageUrl:
-                    'https://image.tmdb.org/t/p/w500/${topMovies.posterPath}',
-                height: height * 0.20,
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-                placeholder: (context, url) => Center(
-                  child: Lottie.asset('assets/lottie/loading.json'),
-                ),
-              ),
-            ),
-            Positioned(
-                bottom: 120,
-                right: 70,
-                child: IconButton(
-                  onPressed: () {
-                    print('Added To Watch List');
-                  },
-                  icon: const Icon(
-                    Icons.bookmark,
-                    size: 40,
-                    color: AppColors.watchListIcon,
-                  ),
-                ))
-          ]),
+          MoviePosterWidget(
+            height: height * 0.5,
+            width: double.infinity,
+            right: 80,
+            bottom: 125,
+            movie: topMovies,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
             child: Column(

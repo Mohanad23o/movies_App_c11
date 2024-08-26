@@ -7,6 +7,7 @@ import 'package:movies_app_c11/tabs/home/home_tab_widget/top_side_section/movie_
 class MovieBannerSlider extends StatelessWidget {
   List<Results> popularMoviesList;
   int selectedIndex = 0;
+
   MovieBannerSlider({super.key, required this.popularMoviesList});
 
   @override

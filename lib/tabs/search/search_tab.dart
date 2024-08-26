@@ -30,11 +30,23 @@ class _SearchTabState extends State<SearchTab> {
                   if (state is SourceSearchLoadingState) {
                     return const Center(child: CircularProgressIndicator());
                   } else if (state is SourceSearchErrorState) {
-                    return Center(
-                      child: Text(
-                        'Error: ${state.errorMessage}',
-                        style: const TextStyle(color: Colors.white),
-                      ),
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Error: ${state.errorMessage}',
+                          style: Theme.of(context).textTheme.labelSmall,
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              viewModel
+                                  .getSearchedMovies(viewModel.searchQuery);
+                            },
+                            child:const Text('Try again'))
+                      ],
                     );
                   } else if (state is SourceUnSearchSuccessState ||
                       viewModel.searchResults!.isEmpty) {

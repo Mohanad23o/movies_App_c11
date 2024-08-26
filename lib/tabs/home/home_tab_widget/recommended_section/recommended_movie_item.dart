@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/screens/details/movies_details_screen.dart';
-import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_move_item_widget.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_movie_item_widget.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
-class RecommendedMoveItem extends StatelessWidget {
+class RecommendedMovieItem extends StatelessWidget {
   final List<Results> movies;
   String title;
 
-  RecommendedMoveItem({
+  RecommendedMovieItem({
     super.key, required this.movies, required this.title});
 
   @override
@@ -60,12 +60,3 @@ class RecommendedMoveItem extends StatelessWidget {
     );
   }
 }
-/*
-topMovies.isNotEmpty
-                      ? RecommendedMoveItemWidget(
-                          height: MediaQuery.of(context).size.height,
-                          width: MediaQuery.of(context).size.width,
-                          topMovies: topMovies[index],
-                        )
-                      : const Text('data'),
- */

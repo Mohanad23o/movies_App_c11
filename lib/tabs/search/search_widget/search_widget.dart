@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/screens/details/movies_details_screen.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/movie_poster_widget.dart';
 import 'package:movies_app_c11/utils/app_utils.dart';
 
 class SearchWidget extends StatelessWidget {
@@ -25,20 +26,12 @@ class SearchWidget extends StatelessWidget {
             },
             child: Row(
               children: [
-                ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      imageUrl:
-                          '${AppUtils.missingImageUrl}${movie.posterPath}',
-                      height: MediaQuery.of(context).size.width * 0.3,
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
-                      placeholder: (context, url) => Center(
-                        child: Lottie.asset('assets/lottie/loading.json'),
-                      ),
-                    )),
+                MoviePosterWidget(
+                    height: MediaQuery.of(context).size.width * 0.7,
+                    right: 33,
+                    bottom: 70,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    movie: movie,),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.05),
                 Expanded(
                   child: Column(
@@ -46,20 +39,13 @@ class SearchWidget extends StatelessWidget {
                     children: [
                       Text(
                         movie.title!,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                        style: Theme.of(context).textTheme.labelMedium,
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02),
                       Text(
                         movie.releaseDate ?? "N/A",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[500],
-                        ),
+                        style: Theme.of(context).textTheme.labelSmall,
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.005),
@@ -67,10 +53,7 @@ class SearchWidget extends StatelessWidget {
                         movie.overview ?? "No description available",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[400],
-                        ),
+                        style: Theme.of(context).textTheme.labelSmall,
                       ),
                     ],
                   ),

@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/screens/details/cubit/movies_details_screen_view_model.dart';
 import 'package:movies_app_c11/screens/details/cubit/movies_details_state.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/movie_poster_widget.dart';
 import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_movie_item.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 import 'package:movies_app_c11/utils/app_utils.dart';
@@ -77,39 +78,9 @@ class MoviesDetailsScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Stack(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: CachedNetworkImage(
-                                          imageUrl:
-                                              '${AppUtils.missingImageUrl}${args.posterPath}',
-                                          width: width * 0.3,
-                                          height: height * 0.2,
-                                          errorWidget: (context, url, error) =>
-                                              const Icon(Icons.error),
-                                          placeholder: (context, url) => Center(
-                                            child: Lottie.asset(
-                                                'assets/lottie/loading.json'),
-                                          ),
-                                        )),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.bookmark_add,
-                                          color: AppColors.watchListIcon,
-                                          size: 40,
-                                        )),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: width * 0.01,
+                              MoviePosterWidget(height: height*0.42, right: 55, bottom: 96, width: width*0.90, movie: args)
+                              ,SizedBox(
+                                width: width * 0.03,
                               ),
                               //////////////////////////////////////////////////
                               SizedBox(
@@ -141,8 +112,8 @@ class MoviesDetailsScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: height * 0.025,
-                            horizontal: width * 0.085),
+                            vertical: height * 0.030,
+                            horizontal: width * 0.040),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [

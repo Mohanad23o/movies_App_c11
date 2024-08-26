@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app_c11/model/Categories_Response.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/screens/details/movies_details_screen.dart';
-import 'package:movies_app_c11/tabs/category_browse/category_details/Categorized_Movie_Item.dart';
-import 'package:movies_app_c11/tabs/category_browse/category_details/Category_view_model.dart';
+import 'package:movies_app_c11/tabs/category_browse/category_browse/category_details/Categorized_Movie_Item.dart';
+import 'package:movies_app_c11/tabs/category_browse/category_browse/category_details/Category_view_model.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
-
-import '../../../model/movies_response.dart';
 
 class CategoryDetails extends StatelessWidget {
   static const String routeName = "Category Details";
@@ -18,7 +17,6 @@ class CategoryDetails extends StatelessWidget {
     var moviesList = viewModel.getMovieByCategory();
     final Genres genre = ModalRoute.of(context)!.settings.arguments as Genres;
     double height = MediaQuery.of(context).size.height;
-
 
     return Scaffold(
       appBar: AppBar(
@@ -52,32 +50,39 @@ class CategoryDetails extends StatelessWidget {
                   return Center(
                     child: Text("Error loading movies: ${snapshot.error}"),
                   );
-                }else {
-                  List<Results>? filteredMovies = viewModel.CategorizedMovies!.where((movie) =>
-                      movie.genreIds!.contains(genre.id)).toList();
+                } else {
+                  List<Results>? filteredMovies = viewModel.CategorizedMovies!
+                      .where((movie) => movie.genreIds!.contains(genre.id))
+                      .toList();
 
-                  if(filteredMovies.isEmpty){
+                  if (filteredMovies.isEmpty) {
                     return Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text("This Category is Empty",style: Theme.of(context).textTheme.bodyLarge ,),
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          "This Category is Empty",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
                         ElevatedButton(
                           onPressed: () => Navigator.pop(context),
                           style: const ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(
                                   AppColors.moviesListContainerColor)),
                           child: Padding(
-                              padding: const EdgeInsets.all(15),
-                              child: Text("Browse Another Category",
-                                style: Theme.of(context).textTheme.displayLarge,),
-                            ),)
-                        ],
-                      );
-
+                            padding: const EdgeInsets.all(15),
+                            child: Text(
+                              "Browse Another Category",
+                              style: Theme.of(context).textTheme.displayLarge,
+                            ),
+                          ),
+                        )
+                      ],
+                    );
                   }
                   return ListView.separated(
                     itemCount: filteredMovies.length,
-                    separatorBuilder: (context, index) => SizedBox(height: height * .02),
+                    separatorBuilder: (context, index) =>
+                        SizedBox(height: height * .02),
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
@@ -97,9 +102,6 @@ class CategoryDetails extends StatelessWidget {
           ),
         ],
       ),
-
     );
-
   }
-
 }

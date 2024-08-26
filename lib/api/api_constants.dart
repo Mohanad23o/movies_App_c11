@@ -9,7 +9,3 @@ class ApiConstants {
   static const String categoriesApi = '/3/genre/movie/list';
   static const String discoverApi = '/3/discover/movie';
 }
-/*
-
-https://api.themoviedb.org/3/movie/popular
- */

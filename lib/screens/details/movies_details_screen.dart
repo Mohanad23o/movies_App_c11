@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/screens/details/cubit/movies_details_screen_view_model.dart';
 import 'package:movies_app_c11/screens/details/cubit/movies_details_state.dart';

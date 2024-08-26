@@ -2,9 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-
-import '../../../api/api_constants.dart';
-import '../../../model/movies_response.dart';
+import 'package:movies_app_c11/api/api_constants.dart';
+import 'package:movies_app_c11/model/movies_response.dart';
 
 class CategoryViewModel extends ChangeNotifier{
     List<Results>? CategorizedMovies;

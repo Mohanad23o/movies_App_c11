@@ -1,10 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/screens/details/movies_details_screen.dart';
 import 'package:movies_app_c11/tabs/home/home_tab_widget/movie_poster_widget.dart';
-import 'package:movies_app_c11/utils/app_utils.dart';
 
 class SearchWidget extends StatelessWidget {
   List<Results>? searchResults;

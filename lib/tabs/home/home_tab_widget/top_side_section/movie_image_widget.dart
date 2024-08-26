@@ -29,7 +29,7 @@ class MovieImageWidget extends StatelessWidget {
             height: height / 3,
             errorWidget: (context, url, error) => Center(
               child: Lottie.asset(
-                '${AppUtils.lottieUrl}',
+                AppUtils.lottieUrl,
                 repeat: true,
                 reverse: true,
                 frameRate: const FrameRate(60),
@@ -37,7 +37,7 @@ class MovieImageWidget extends StatelessWidget {
             ),
             placeholder: (context, url) => Center(
               child: Lottie.asset(
-                '${AppUtils.lottieUrl}',
+                AppUtils.lottieUrl,
                 repeat: true,
                 reverse: true,
                 frameRate: const FrameRate(60),

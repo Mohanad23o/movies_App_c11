@@ -8,7 +8,10 @@ class WatchListIconWidget extends StatelessWidget {
   double right;
 
   WatchListIconWidget(
-      {required this.right, required this.bottom, required this.movie});
+      {super.key,
+      required this.right,
+      required this.bottom,
+      required this.movie});
 
   @override
   Widget build(BuildContext context) {

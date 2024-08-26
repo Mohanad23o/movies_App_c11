@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app_c11/tabs/category_browse/category_browse_tab.dart';
+import 'package:movies_app_c11/tabs/category_browse/category_browse/category_browse_tab.dart';
 import 'package:movies_app_c11/tabs/home/home_tab.dart';
 import 'package:movies_app_c11/tabs/search/search_tab.dart';
 import 'package:movies_app_c11/tabs/watch_list/watch_list_tab.dart';

@@ -4,7 +4,7 @@ import 'package:movies_app_c11/my_bloc_observer.dart';
 import 'package:movies_app_c11/screens/details/movies_details_screen.dart';
 import 'package:movies_app_c11/screens/home_screen.dart';
 import 'package:movies_app_c11/screens/splash/custom_splash_screen.dart';
-import 'package:movies_app_c11/tabs/category_browse/category_details/CategoryDetails.dart';
+import 'package:movies_app_c11/tabs/category_browse/category_browse/category_details/CategoryDetails.dart';
 import 'package:movies_app_c11/theme/my_theme_data.dart';
 
 void main() {

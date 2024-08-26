@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app_c11/tabs/category_browse/cubit/Sources_State.dart';
-import 'package:movies_app_c11/tabs/category_browse/cubit/category_browse_tab_view_model.dart';
+import 'package:movies_app_c11/tabs/category_browse/category_browse/cubit/Sources_State.dart';
+import 'package:movies_app_c11/tabs/category_browse/category_browse/cubit/category_browse_tab_view_model.dart';
 
 import 'category_widget/category_widget.dart';
 
@@ -51,8 +51,7 @@ class CategoryBrowseTab extends StatelessWidget {
               ),
             ],
           );
-        }
-        else if (state is GenriesErrorState) {
+        } else if (state is GenriesErrorState) {
           return Center(child: Text("Error: ${state.errorMessage}"));
         } else {
           return const Center(child: Text("No categories available."));
@@ -61,4 +60,3 @@ class CategoryBrowseTab extends StatelessWidget {
     );
   }
 }
-

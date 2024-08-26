@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/screens/details/cubit/movies_details_screen_view_model.dart';
 import 'package:movies_app_c11/screens/details/cubit/movies_details_state.dart';
-import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_move_item.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_movie_item.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 import 'package:movies_app_c11/utils/app_utils.dart';
 import 'package:readmore/readmore.dart';
@@ -168,7 +168,7 @@ class MoviesDetailsScreen extends StatelessWidget {
                                 child: Text(state.errorMessage),
                               );
                             } else if (state is MoviesSuccessState) {
-                              return RecommendedMoveItem(
+                              return RecommendedMovieItem(
                                 movies: state.moviesResult,
                                 title: 'More Like This',
                               );

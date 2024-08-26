@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app_c11/tabs/home/cubit/home_tab_view_model.dart';
 import 'package:movies_app_c11/tabs/home/cubit/sources_state.dart';
-import 'package:movies_app_c11/tabs/home/home_tab_widget/new_releases_section/new_releases_move_item.dart';
-import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_move_item.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/new_releases_section/new_releases_movie_item.dart';
+import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/recommended_movie_item.dart';
 import 'package:movies_app_c11/tabs/home/home_tab_widget/top_side_section/movie_banner_slider.dart';
 
 class HomeTab extends StatefulWidget {
@@ -38,8 +38,24 @@ class _HomeTabState extends State<HomeTab> {
             child: CircularProgressIndicator(),
           );
         } else if (state is SourceErrorState) {
-          return Center(
-            child: Text('Error: ${state.errorMessage}'),
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Error: ${state.errorMessage}',
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
+             const  SizedBox(
+                height: 15,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    viewModel.getPopularMovies();
+                    viewModel.getNewReleasesMovies();
+                    viewModel.getTopRatedMovies();
+                  },
+                  child:const Text('Try again'))
+            ],
           );
         } else if (state is PopularMoviesSuccessState ||
             state is NewReleasesMoviesSuccessState ||
@@ -57,14 +73,14 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                   if (viewModel.newReleasesMovies != null &&
                       viewModel.newReleasesMovies!.isNotEmpty)
-                    NewReleasesMoveItem(
+                    NewReleasesMovieItem(
                         newReleasesMovies: viewModel.newReleasesMovies!),
                   SizedBox(
                     height: height * 0.0269,
                   ),
                   if (viewModel.topRatedMovies != null &&
                       viewModel.topRatedMovies!.isNotEmpty)
-                    RecommendedMoveItem(
+                    RecommendedMovieItem(
                       movies: viewModel.topRatedMovies!,
                       title: 'Recommended',
                     ),

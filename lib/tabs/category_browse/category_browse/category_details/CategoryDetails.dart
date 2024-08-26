@@ -20,7 +20,7 @@ class CategoryDetails extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(
+        leading: const BackButton(
           color: Colors.white,
         ),
         backgroundColor: Colors.transparent,

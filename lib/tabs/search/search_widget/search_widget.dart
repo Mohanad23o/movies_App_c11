@@ -28,8 +28,8 @@ class SearchWidget extends StatelessWidget {
               children: [
                 MoviePosterWidget(
                     height: MediaQuery.of(context).size.width * 0.7,
-                    right: 33,
-                    bottom: 70,
+                    right: MediaQuery.of(context).size.width * 0.09,
+                    bottom: MediaQuery.of(context).size.height * 0.090,
                     width: MediaQuery.of(context).size.width * 0.7,
                     movie: movie,),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.05),

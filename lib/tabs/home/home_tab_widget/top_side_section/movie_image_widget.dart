@@ -50,8 +50,8 @@ class MovieImageWidget extends StatelessWidget {
           left: 20,
           child: MoviePosterWidget(
             height: height * 0.4,
-            right: 50,
-            bottom: 90,
+            right: width*0.13,
+            bottom: height*0.11,
             width: width * 0.9,
             movie: movie,
           ),

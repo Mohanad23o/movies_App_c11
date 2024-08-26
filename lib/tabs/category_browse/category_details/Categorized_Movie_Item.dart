@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/Categories_Response.dart';
@@ -13,9 +12,12 @@ class CategorizedMovieItem extends StatelessWidget {
 Results categorizedMovie;
 Genres selectedGenrie;
 
-CategorizedMovieItem({required this.categorizedMovie, required this.selectedGenrie});
+CategorizedMovieItem(
+      {super.key,
+      required this.categorizedMovie,
+      required this.selectedGenrie});
 
-final CategoryViewModel viewModel = CategoryViewModel();
+  final CategoryViewModel viewModel = CategoryViewModel();
 
 
   @override
@@ -40,8 +42,10 @@ final CategoryViewModel viewModel = CategoryViewModel();
         child: Column(crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              margin: EdgeInsets.only(top: 10,),
-              height: height*.26,
+            margin: const EdgeInsets.only(
+              top: 10,
+            ),
+            height: height*.26,
               child: CachedNetworkImage(
                 imageUrl: 'https://image.tmdb.org/t/p/w500/${categorizedMovie.backdropPath}?id=${categorizedMovie.id}',
                 width: double.infinity,
@@ -71,8 +75,8 @@ final CategoryViewModel viewModel = CategoryViewModel();
               textAlign: TextAlign.center,
               ),
             ),
-            Divider(
-              color: AppColors.moviesItemContainerColor,
+          const Divider(
+            color: AppColors.moviesItemContainerColor,
             )
           ],
         ),

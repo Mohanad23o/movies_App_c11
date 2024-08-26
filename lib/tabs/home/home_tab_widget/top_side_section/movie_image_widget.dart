@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
+import 'package:movies_app_c11/utils/app_utils.dart';
 
 class MovieImageWidget extends StatelessWidget {
   final Results movie;
@@ -23,7 +24,7 @@ class MovieImageWidget extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: CachedNetworkImage(
-            imageUrl: 'https://image.tmdb.org/t/p/w500/${movie.backdropPath}',
+            imageUrl: '${AppUtils.missingImageUrl}${movie.backdropPath}',
             width: double.infinity,
             height: height / 3,
             errorWidget: (context, url, error) => Center(

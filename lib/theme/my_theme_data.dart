@@ -40,7 +40,17 @@ class MyThemeData {
         color: AppColors.whiteColor,
         fontSize: 24,
       ),
-
-    ),
+        displaySmall: GoogleFonts.inter(
+            fontWeight: FontWeight.w400,
+            color: AppColors.lightGreyColor,
+            fontSize: 10),
+        bodyMedium: GoogleFonts.poppins(
+            fontSize: 18,
+            color: AppColors.whiteColor,
+            fontWeight: FontWeight.w400),
+        titleMedium: GoogleFonts.inter(
+            fontSize: 13,
+            fontWeight: FontWeight.w400,
+            color: AppColors.lightGreyColor)),
   );
 }

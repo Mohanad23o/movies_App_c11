@@ -7,6 +7,8 @@ import 'package:movies_app_c11/tabs/home/home_tab_widget/recommended_section/rec
 import 'package:movies_app_c11/tabs/home/home_tab_widget/top_side_section/movie_banner_slider.dart';
 
 class HomeTab extends StatefulWidget {
+  const HomeTab({super.key});
+
   @override
   _HomeTabState createState() => _HomeTabState();
 }
@@ -32,7 +34,7 @@ class _HomeTabState extends State<HomeTab> {
         if (state is PopularMoviesLoadingState ||
             state is NewReleasesMoviesLoadingState ||
             state is TopRatedMoviesLoadingState) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (state is SourceErrorState) {
@@ -62,7 +64,10 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                   if (viewModel.topRatedMovies != null &&
                       viewModel.topRatedMovies!.isNotEmpty)
-                    RecommendedMoveItem(topMovies: viewModel.topRatedMovies!),
+                    RecommendedMoveItem(
+                      movies: viewModel.topRatedMovies!,
+                      title: 'Recommended',
+                    ),
                 ],
               ),
             ),

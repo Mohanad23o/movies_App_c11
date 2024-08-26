@@ -22,7 +22,7 @@ class TextFieldSearchWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.blue),
+            borderSide: const BorderSide(color: Colors.grey),
             borderRadius: BorderRadius.circular(30),
           ),
           hintStyle: const TextStyle(color: Colors.grey),

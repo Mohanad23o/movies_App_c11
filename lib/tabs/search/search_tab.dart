@@ -36,7 +36,8 @@ class _SearchTabState extends State<SearchTab> {
                         style: const TextStyle(color: Colors.white),
                       ),
                     );
-                  } else if (state is SourceUnSearchSuccessState) {
+                  } else if (state is SourceUnSearchSuccessState ||
+                      viewModel.searchResults!.isEmpty) {
                     return const Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

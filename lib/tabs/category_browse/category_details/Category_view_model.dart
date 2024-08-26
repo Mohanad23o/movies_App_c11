@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:movies_app_c11/tabs/category_browse/category_details/Categorized_Movie_Item.dart';
+
 import '../../../api/api_constants.dart';
 import '../../../model/movies_response.dart';
 

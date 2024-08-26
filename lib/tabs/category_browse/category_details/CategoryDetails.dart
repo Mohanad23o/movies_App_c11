@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app_c11/model/Categories_Response.dart';
+import 'package:movies_app_c11/screens/details/movies_details_screen.dart';
 import 'package:movies_app_c11/tabs/category_browse/category_details/Categorized_Movie_Item.dart';
 import 'package:movies_app_c11/tabs/category_browse/category_details/Category_view_model.dart';
-import 'package:movies_app_c11/tabs/category_browse/category_widget/category_widget.dart';
 import 'package:movies_app_c11/theme/app_colors.dart';
 
 import '../../../model/movies_response.dart';
@@ -10,6 +10,8 @@ import '../../../model/movies_response.dart';
 class CategoryDetails extends StatelessWidget {
   static const String routeName = "Category Details";
   final CategoryViewModel viewModel = CategoryViewModel();
+
+  CategoryDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +21,31 @@ class CategoryDetails extends StatelessWidget {
 
 
     return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          color: Colors.white,
+        ),
+        backgroundColor: Colors.transparent,
+        title: Text(
+          "${genre.name} Movies",
+          style: Theme.of(context).textTheme.titleLarge,
+          textAlign: TextAlign.start,
+        ),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 50, left: 30,bottom: 20),
-            child: Text(
-              "${genre.name} Movies",
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.start,
-            ),
-          ),
+          // Text(
+          //   "${genre.name} Movies",
+          //   style: Theme.of(context).textTheme.titleLarge,
+          //   textAlign: TextAlign.start,
+          // ),
           Expanded(
             child: FutureBuilder(
               future: moviesList,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (snapshot.hasError) {
@@ -51,9 +61,12 @@ class CategoryDetails extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text("This Category is Empty",style: Theme.of(context).textTheme.bodyLarge ,),
-                          ElevatedButton(onPressed: ()=>Navigator.pop(context),
-                            style: ButtonStyle(backgroundColor:WidgetStatePropertyAll(AppColors.moviesListContainerColor) ),
-                            child: Padding(
+                        ElevatedButton(
+                          onPressed: () => Navigator.pop(context),
+                          style: const ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                                  AppColors.moviesListContainerColor)),
+                          child: Padding(
                               padding: const EdgeInsets.all(15),
                               child: Text("Browse Another Category",
                                 style: Theme.of(context).textTheme.displayLarge,),
@@ -63,12 +76,19 @@ class CategoryDetails extends StatelessWidget {
 
                   }
                   return ListView.separated(
-                    itemCount: filteredMovies!.length,
+                    itemCount: filteredMovies.length,
                     separatorBuilder: (context, index) => SizedBox(height: height * .02),
                     itemBuilder: (context, index) {
-                      return CategorizedMovieItem(
-                        selectedGenrie: genre,
-                          categorizedMovie: filteredMovies![index]);
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                              MoviesDetailsScreen.routeName,
+                              arguments: filteredMovies[index]);
+                        },
+                        child: CategorizedMovieItem(
+                            selectedGenrie: genre,
+                            categorizedMovie: filteredMovies[index]),
+                      );
                     },
                   );
                 }

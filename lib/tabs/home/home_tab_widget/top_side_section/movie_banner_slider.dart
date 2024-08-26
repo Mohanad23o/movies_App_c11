@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app_c11/model/movies_response.dart';
+import 'package:movies_app_c11/screens/details/movies_details_screen.dart';
 import 'package:movies_app_c11/tabs/home/home_tab_widget/top_side_section/movie_image_widget.dart';
 
 class MovieBannerSlider extends StatelessWidget {
@@ -10,11 +11,7 @@ class MovieBannerSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        print('go to details ');
-      },
-      child: CarouselSlider.builder(
+    return CarouselSlider.builder(
         options: CarouselOptions(
           height: MediaQuery.of(context).size.height * 0.4,
           viewportFraction: 1,
@@ -25,12 +22,17 @@ class MovieBannerSlider extends StatelessWidget {
           autoPlayInterval: const Duration(seconds: 4),
         ),
         itemCount: popularMoviesList.length,
-            itemBuilder:
-                (BuildContext context, int itemIndex, int pageViewIndex) {
-              return MovieImageWidget(
-                  movie: popularMoviesList[itemIndex],
-          width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height);
-            }));
+        itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
+          return InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed(MoviesDetailsScreen.routeName,
+                  arguments: popularMoviesList[itemIndex]);
+            },
+            child: MovieImageWidget(
+                movie: popularMoviesList[itemIndex],
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height),
+          );
+        });
   }
 }

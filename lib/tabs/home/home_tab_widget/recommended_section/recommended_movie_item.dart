@@ -17,7 +17,7 @@ class RecommendedMovieItem extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       color: AppColors.moviesListContainerColor,
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.35,
+      height: MediaQuery.of(context).size.height * 0.37,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

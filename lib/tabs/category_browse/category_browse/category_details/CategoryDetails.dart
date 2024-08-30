@@ -20,7 +20,7 @@ class CategoryDetails extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: const BackButton(
+        leading: BackButton(
           color: Colors.white,
         ),
         backgroundColor: Colors.transparent,
@@ -51,7 +51,7 @@ class CategoryDetails extends StatelessWidget {
                     child: Text("Error loading movies: ${snapshot.error}"),
                   );
                 } else {
-                  List<Results>? filteredMovies = viewModel.CategorizedMovies!
+                  List<Results>? filteredMovies = viewModel.categorizedMovies!
                       .where((movie) => movie.genreIds!.contains(genre.id))
                       .toList();
 
@@ -80,9 +80,12 @@ class CategoryDetails extends StatelessWidget {
                     );
                   }
                   return ListView.separated(
-                    itemCount: filteredMovies.length,
-                    separatorBuilder: (context, index) =>
-                        SizedBox(height: height * .02),
+                    itemCount: filteredMovies!.length,
+                    separatorBuilder: (context, index) => Divider(
+                      color: AppColors.moviesItemContainerColor,
+                      endIndent: 25,
+                      indent: 25,
+                    ),
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {

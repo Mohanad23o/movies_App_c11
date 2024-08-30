@@ -60,6 +60,9 @@ class _HomeTabState extends State<HomeTab> {
         } else if (state is PopularMoviesSuccessState ||
             state is NewReleasesMoviesSuccessState ||
             state is TopRatedMoviesSuccessState) {
+/*          print("444444444444444444444444444444444444444");
+          print(viewModel.topRatedMovies![0].title);
+          print(viewModel.topRatedMovies![0].onWatchList);*/
           return Scaffold(
             body: SingleChildScrollView(
               child: Column(
@@ -89,6 +92,7 @@ class _HomeTabState extends State<HomeTab> {
             ),
           );
         }
+
         return Container();
       },
     );

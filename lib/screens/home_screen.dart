@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
           showUnselectedLabels: true,
           onTap: (index) {
             selectedIndex = index;

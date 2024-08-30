@@ -51,6 +51,7 @@ class MyThemeData {
         titleMedium: GoogleFonts.inter(
             fontSize: 13,
             fontWeight: FontWeight.w400,
-            color: AppColors.lightGreyColor)),
+          color: AppColors.lightGreyColor),
+    ),
   );
 }

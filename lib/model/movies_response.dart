@@ -60,6 +60,7 @@ class Results {
     this.video,
     this.voteAverage,
     this.voteCount,
+    this.onWatchList,
   });
 
   Results.fromJson(dynamic json) {
@@ -93,6 +94,9 @@ class Results {
   bool? video;
   double? voteAverage;
   int? voteCount;
+  bool? onWatchList = false;
+
+  ///added to fill the watchList list
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

@@ -78,10 +78,11 @@ class MoviesDetailsScreen extends StatelessWidget {
                             children: [
                               MoviePosterWidget(
                                   height: height * 0.42,
-                                  right: width * 0.15,
-                                  bottom: height * 0.12,
-                                  width: width * 0.96,
-                                  movie: args),SizedBox(
+                                  right: width * 0.13,
+                                  bottom: height * 0.11,
+                                  width: width * 0.90,
+                                  movie: args),
+                              SizedBox(
                                 width: width * 0.03,
                               ),
                               //////////////////////////////////////////////////

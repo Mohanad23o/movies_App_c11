@@ -24,7 +24,7 @@ class CategoryBrowseTab extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 80, left: 30),
+                padding: const EdgeInsets.only(top: 80, left: 20),
                 child: Text(
                   "Browse Category",
                   style: Theme.of(context).textTheme.titleLarge,

@@ -1,16 +1,28 @@
-# movies_app_c11
+# Movies App 
 
-A new Flutter project.
+A Flutter-based movie information app.
 
-## Getting Started
+## 📌 Features
+- Display a list of popular movies.
+- Search for movies.
+- View detailed movie information, including title, release year, rating, and description.
+- Responsive and user-friendly UI.
 
-This project is a starting point for a Flutter application.
+## 🛠️ Technologies Used
+- **Flutter** with **Dart**.
+- **Movie API** (Specify which API you are using, such as TMDB).
+- **State Management** (Mention if you use Provider, Bloc, etc.).
+- **Modern UI with Material Design**.
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 How to Run the Project
+1. Ensure **Flutter** is installed on your system.
+2. Run the following command to install dependencies:
+   ```sh
+   flutter pub get
+   ```
+3. Run the app:
+   ```sh
+   flutter run
+   ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**PS:** Make sure that use have downloaded**Flutter**
